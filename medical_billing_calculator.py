@@ -36,7 +36,7 @@ class BillingCalculator:
 
         self._days_input_frame = di.DaysInput(frame_left, text="Days")
         self._days_input_frame.pack(expand=1, fill='both')
-    
+
         self._generate_file_button = ttk.Button(frame_left, text="Generate File")
         self._generate_file_button.pack(side=Tkinter.RIGHT, padx=5, pady=5)
         self._generate_file_button.bind("<Button-1>", self.__generate_file)
@@ -44,7 +44,7 @@ class BillingCalculator:
         self._calculate_button = ttk.Button(frame_left, text="Calculate")
         self._calculate_button.pack(side=Tkinter.RIGHT, padx=5, pady=5)
         self._calculate_button.bind("<Button-1>", self.__calculate)
-		
+
         frame_right = ttk.Frame(root)
         frame_right.pack(side=Tkinter.RIGHT, expand=1, fill='both')
 
@@ -55,7 +55,7 @@ class BillingCalculator:
         self._content_text.configure(yscrollcommand=scroll_bar.set)
         scroll_bar.config(command=self._content_text.yview)
         scroll_bar.pack(side=Tkinter.RIGHT, fill='y')
-		
+
         ''' GUI initialization ends here '''
     
         root.mainloop()	 
@@ -113,6 +113,7 @@ class BillingCalculator:
 	   
        table = self._days_input_frame.get_table()
        records = []      
+
        total_bill = 0.00
 
        for d in dates:
@@ -125,6 +126,7 @@ class BillingCalculator:
 
                total_units_for_date = units * hour
                total_pay_for_date = pay * hour
+
                total_bill += round(total_pay_for_date,2)
                
                entry = {}
@@ -155,6 +157,7 @@ class BillingCalculator:
 		
         return entry_strings
 		
+
     def __update_record(self, records, total_bill):
         self._content_text.delete('1.0', Tkinter.END)
         i = 1

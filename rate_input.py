@@ -38,7 +38,6 @@ class RateInput(ttk.LabelFrame):
         self._revcode.set("0570")
         self._description.set("Personal Care Aide")
         self._billing_code.set("T1019")
-        #self._pay_per_units.set(0.00)
 
     def get_units(self):
         return self._units.get()

@@ -24,16 +24,27 @@ class DatePicker(ttk.LabelFrame):
         self.__init_widgets()
 
     def __init_widgets(self):
+
         #pil_image = Image.open("calendar-256.png")
         #pil_image.thumbnail((10,10), Image.ANTIALIAS)
 
         #self.calendar_icon = ImageTk.PhotoImage(pil_image)
 
+        pil_image = Image.open("calendar-256.png")
+        pil_image.thumbnail((10,10), Image.ANTIALIAS)
+
+        self.calendar_icon = ImageTk.PhotoImage(pil_image)
+
         ttk.Label(self, text="From:").grid(row=0, sticky=Tkinter.E, padx=1, pady=(10,10))
         
         ttk.Entry(self, width=10, textvariable=self._from_date).grid(row=0, column=1, sticky=Tkinter.E, padx=(1,1))    
+
         ttk.Button(self, text="Calendar", image="").grid(row=0, column=2, sticky=Tkinter.E, padx=(1,1))
 	
+        ttk.Label(self, text="To:").grid(row=0, column=3, sticky=Tkinter.E, padx=(15,1), pady=(10,10))
+        ttk.Entry(self, width=10, textvariable=self._to_date).grid(row=0, column=4, sticky=Tkinter.E, padx=(1,1))
+        ttk.Button(self, text="Calendar", image="").grid(row=0, column=5, sticky=Tkinter.E, padx=1)
+
         ttk.Label(self, text="To:").grid(row=0, column=3, sticky=Tkinter.E, padx=(15,1), pady=(10,10))
         ttk.Entry(self, width=10, textvariable=self._to_date).grid(row=0, column=4, sticky=Tkinter.E, padx=(1,1))
         ttk.Button(self, text="Calendar", image="").grid(row=0, column=5, sticky=Tkinter.E, padx=1)
